@@ -25,3 +25,24 @@
  * ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
  * POSSIBILITY OF SUCH DAMAGE.
  */
+
+namespace OPNsense\AcmeClient\LeValidation;
+
+use OPNsense\AcmeClient\LeValidationInterface;
+use OPNsense\Core\Config;
+
+/**
+ * bHosted.nl DNS API
+ * @package OPNsense\AcmeClient
+ */
+class DnsBhosted extends Base implements LeValidationInterface
+{
+    public function prepare()
+    {
+        $this->acme_env['BHOSTED_Username'] = (string)$this->config->dns_bhosted_user;
+        $this->acme_env['BHOSTED_Password'] = (string)$this->config->dns_bhosted_password;
+        $this->acme_env['BHOSTED_TTL'] = (string)$this->config->dns_bhosted_ttl;
+        $this->acme_env['BHOSTED_SLD'] = (string)$this->config->dns_bhosted_sld;
+        $this->acme_env['BHOSTED_TLD'] = (string)$this->config->dns_bhosted_tld;
+    }
+}
