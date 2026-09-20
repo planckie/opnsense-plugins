@@ -41,8 +41,17 @@ class DnsBhosted extends Base implements LeValidationInterface
     {
         $this->acme_env['BHOSTED_Username'] = (string)$this->config->dns_bhosted_user;
         $this->acme_env['BHOSTED_Password'] = (string)$this->config->dns_bhosted_password;
-        $this->acme_env['BHOSTED_TTL'] = (string)$this->config->dns_bhosted_ttl;
-        $this->acme_env['BHOSTED_SLD'] = (string)$this->config->dns_bhosted_sld;
-        $this->acme_env['BHOSTED_TLD'] = (string)$this->config->dns_bhosted_tld;
+        // Optional TTL
+        if (!empty((string)$this->config->dns_bhosted_ttl)) {
+            $this->acme_env['BHOSTED_TTL'] = (string)$this->config->dns_bhosted_ttl;
+        }
+        // Optional SLD
+        if (!empty((string)$this->config->dns_bhosted_sld)) {
+            $this->acme_env['BHOSTED_SLD'] = (string)$this->config->dns_bhosted_sld;
+        }
+        // Optional TLD
+        if (!empty((string)$this->config->dns_bhosted_tld)) {
+            $this->acme_env['BHOSTED_TLD'] = (string)$this->config->dns_bhosted_tld;
+        }
     }
 }
