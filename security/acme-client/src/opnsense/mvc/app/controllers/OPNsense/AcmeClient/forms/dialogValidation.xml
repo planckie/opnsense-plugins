@@ -257,7 +257,7 @@
         <id>validation.dns_bhosted_ttl</id>
         <label>TTL</label>
         <type>text</type>
-        <help>TTL for TXT record (default: 300)</help>
+        <help>Optional override TTL for TXT record (default: 300)</help>
     </field>
     <field>
         <id>validation.dns_bhosted_sld</id>
